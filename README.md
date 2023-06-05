@@ -73,7 +73,7 @@ https://www.youtube.com/watch?v=wa2ARoUUdU8&ab_channel=Murtaza%27sWorkshop-Robot
 https://github.com/murtazahassan<br>
 https://www.computervision.zone/courses/hand-sign-detection-asl/<br>
 https://github.com/HaibaoBaba/Sign-Language-Translator-ASL<br>
-
+https://github.com/Mohamedyasserhelmy/Sign-Language-Translator-ASL
 ---
 
 ## Required installations: ##
