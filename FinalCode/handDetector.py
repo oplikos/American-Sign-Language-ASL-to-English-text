@@ -12,6 +12,7 @@ import cv2
 import os
 from PIL import ImageTk, Image
 
+
 class GUI:
 
     def __init__(self, title, size):
@@ -75,6 +76,7 @@ class GUI:
                 images.append(image_tk)
         return images
 
+
 class Model:
 
     classifier = None
@@ -117,6 +119,7 @@ class Model:
 
         pred = classifier.predict(img)
         return classes[np.argmax(pred)], pred
+
 
 class DataGatherer:
 
@@ -165,10 +168,12 @@ class DataGatherer:
             th3, minValue, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
         return res
 
+
 def Auto_Correct(word):
     mySpellChecker = SpellChecker()
     return mySpellChecker.correction(word)
-    
+
+
 def load_images_from_folder(folder):
     images = []
     for filename in os.listdir(folder):
@@ -177,10 +182,12 @@ def load_images_from_folder(folder):
             images.append(img)
     return images
 
+
 def draw_region(image, center):
     cropped_image = cv2.rectangle(image, (center[0] - 130, center[1] - 130),
                                   (center[0] + 130, center[1] + 130), (0, 150, 255), 5)
     return cropped_image[center[1]-130:center[1]+130, center[0]-130:center[0]+130], cropped_image
+
 
 def start_gui(title, size):
     gui = GUI(title, size)
@@ -196,6 +203,7 @@ def start_gui(title, size):
     image_label = Label(gui_frame, text="")
     image_label.grid(row=3, column=2, pady=5)
     # Function to update the image label
+
     def update_image_label(image_index):
         image_label.config(image=images[image_index])
         image_label.image = images[image_index]
@@ -222,15 +230,18 @@ def start_gui(title, size):
         update_image_label(image_index)
     return gui, vid_label
 
+
 def exit_app(gui, cap):
     gui.root.destroy()
     cap.release()
+
 
 def update_frame(image, vid_label):
     image_fromarray = Image.fromarray(image)
     imgtk = ImageTk.PhotoImage(image=image_fromarray)
     vid_label.imgtk = imgtk
     vid_label.config(image=imgtk)
+
 
 def get_threshold(label_entrybox):
     value = label_entrybox.get('1.0', END)
@@ -239,11 +250,13 @@ def get_threshold(label_entrybox):
     except:
         return 0.95
 
+
 def get_char(gesture):
     classes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
                'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
                'W', 'X', 'Y', 'Z', 'del', 'nothing', 'space']
     return Model.predict(classes, classifier, gesture)
+
 
 def AddCharToWord(word, curr_char):
     temp_word = word
@@ -259,6 +272,7 @@ def AddCharToWord(word, curr_char):
         temp_word += curr_char.lower()
         print('character has been added: ', curr_char.lower())
     return [temp_word, curr_char]
+
 
 def frame_video_stream(names, curr_char, prev_char, word, sentence, *args):
     kwargs = dict(zip(names, args))
@@ -311,6 +325,7 @@ def frame_video_stream(names, curr_char, prev_char, word, sentence, *args):
     kwargs['vid_label'].after(
         1, frame_video_stream, names, curr_char, prev_char, word, sentence, *args)
 
+
 def pipe_cam(gui, vid_label, images):
     curr_char = None
     prev_char = None
@@ -348,12 +363,12 @@ def pipe_cam(gui, vid_label, images):
                            hands,  th_entrybox, cc_entrybox, ow_entrybox, cw_entrybox, sent_entrybox)
         gui.root.configure(background="#37251b")
         gui.root.mainloop()
-        
+
 
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 cap = None
-classifier = Model.load_classifier('grayscale_classifier1')
+classifier = Model.load_classifier('Module')
 image_folder = 'test'
 images = load_images_from_folder(image_folder)
 title = "American-Sign-Language-ASL-to-English-text"
