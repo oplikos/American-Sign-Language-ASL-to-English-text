@@ -1,0 +1,117 @@
+sbouzikian@sbouzikian-14134:~/private$ time python save.py
+2023-05-23 16:14:24.753212: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 16:14:26.303505: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Found 87000 images belonging to 29 classes.
+2023-05-23 16:14:33.719293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10379 MB memory:  -> device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ conv2d (Conv2D)             (None, 62, 62, 32)        896
+
+ activation (Activation)     (None, 62, 62, 32)        0
+
+ max_pooling2d (MaxPooling2D  (None, 31, 31, 32)       0
+ )
+
+ conv2d_1 (Conv2D)           (None, 29, 29, 64)        18496
+
+ activation_1 (Activation)   (None, 29, 29, 64)        0
+
+ max_pooling2d_1 (MaxPooling  (None, 14, 14, 64)       0
+ 2D)
+
+ conv2d_2 (Conv2D)           (None, 12, 12, 64)        36928
+
+ activation_2 (Activation)   (None, 12, 12, 64)        0
+
+ max_pooling2d_2 (MaxPooling  (None, 6, 6, 64)         0
+ 2D)
+
+ flatten (Flatten)           (None, 2304)              0
+
+ dense (Dense)               (None, 128)               295040
+
+ activation_3 (Activation)   (None, 128)               0
+
+ dense_1 (Dense)             (None, 29)                3741
+
+ activation_4 (Activation)   (None, 29)                0
+
+=================================================================
+Total params: 355,101
+Trainable params: 355,101
+Non-trainable params: 0
+_________________________________________________________________
+2023-05-23 16:14:34.506263: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+         [[{{node Placeholder/_0}}]]
+Epoch 1/25
+2023-05-23 16:14:36.907490: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-05-23 16:14:37.832031: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x7f485004b8c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-05-23 16:14:37.832094: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2023-05-23 16:14:37.841548: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-05-23 16:14:38.077295: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1360/1360 [==============================] - 296s 213ms/step - loss: 1.3860 - accuracy: 0.5791
+Epoch 2/25
+1360/1360 [==============================] - 288s 212ms/step - loss: 0.3451 - accuracy: 0.8825
+Epoch 3/25
+1360/1360 [==============================] - 288s 212ms/step - loss: 0.1826 - accuracy: 0.9375
+Epoch 4/25
+1360/1360 [==============================] - 286s 210ms/step - loss: 0.1303 - accuracy: 0.9554
+Epoch 5/25
+1360/1360 [==============================] - 289s 213ms/step - loss: 0.0965 - accuracy: 0.9671
+Epoch 6/25
+1360/1360 [==============================] - 286s 211ms/step - loss: 0.0777 - accuracy: 0.9735
+Epoch 7/25
+1360/1360 [==============================] - 287s 211ms/step - loss: 0.0715 - accuracy: 0.9763
+Epoch 8/25
+1360/1360 [==============================] - 287s 211ms/step - loss: 0.0586 - accuracy: 0.9805
+Epoch 9/25
+1360/1360 [==============================] - 283s 208ms/step - loss: 0.0531 - accuracy: 0.9819
+Epoch 10/25
+1360/1360 [==============================] - 283s 208ms/step - loss: 0.0469 - accuracy: 0.9843
+Epoch 11/25
+1360/1360 [==============================] - 282s 208ms/step - loss: 0.0455 - accuracy: 0.9845
+Epoch 12/25
+1360/1360 [==============================] - 285s 209ms/step - loss: 0.0407 - accuracy: 0.9861
+Epoch 13/25
+1360/1360 [==============================] - 285s 210ms/step - loss: 0.0417 - accuracy: 0.9863
+Epoch 14/25
+1360/1360 [==============================] - 280s 206ms/step - loss: 0.0353 - accuracy: 0.9883
+Epoch 15/25
+1360/1360 [==============================] - 277s 203ms/step - loss: 0.0327 - accuracy: 0.9890
+Epoch 16/25
+1360/1360 [==============================] - 277s 204ms/step - loss: 0.0315 - accuracy: 0.9897
+Epoch 17/25
+1360/1360 [==============================] - 280s 206ms/step - loss: 0.0329 - accuracy: 0.9893
+Epoch 18/25
+1360/1360 [==============================] - 285s 209ms/step - loss: 0.0314 - accuracy: 0.9901
+Epoch 19/25
+1360/1360 [==============================] - 278s 205ms/step - loss: 0.0254 - accuracy: 0.9917
+Epoch 20/25
+1360/1360 [==============================] - 278s 204ms/step - loss: 0.0298 - accuracy: 0.9906
+Epoch 21/25
+1360/1360 [==============================] - 269s 198ms/step - loss: 0.0273 - accuracy: 0.9915
+Epoch 22/25
+1360/1360 [==============================] - 272s 200ms/step - loss: 0.0256 - accuracy: 0.9917
+Epoch 23/25
+1360/1360 [==============================] - 271s 199ms/step - loss: 0.0248 - accuracy: 0.9922
+Epoch 24/25
+1360/1360 [==============================] - 272s 200ms/step - loss: 0.0258 - accuracy: 0.9920
+Epoch 25/25
+1360/1360 [==============================] - 272s 200ms/step - loss: 0.0221 - accuracy: 0.9931
+Traceback (most recent call last):
+  File "/home/sbouzikian/private/save.py", line 85, in <module>
+    metrics[['loss', 'val_loss']].plot()
+  File "/opt/conda/lib/python3.9/site-packages/pandas/core/frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/opt/conda/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/opt/conda/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['val_loss'] not in index"
+
+real    117m30.465s
+user    98m8.148s
+sys     4m42.711s

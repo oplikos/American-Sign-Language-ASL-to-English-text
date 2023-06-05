@@ -1,0 +1,1 @@
+write a training code using the same approche of teachablemachine.com (244x244px  epoche 15 batch size 16 learning rate 0.001 export to tensorflow keras)

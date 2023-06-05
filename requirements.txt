@@ -1,0 +1,7 @@
+numpy
+mediapipe
+tensorflow
+opencv-python
+pyspellchecker
+scikit-learn
+matplotlib

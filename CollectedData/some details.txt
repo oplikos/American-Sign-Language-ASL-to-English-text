@@ -1,0 +1,449 @@
+sbouzikian@sbouzikian-14134:~/private$ time python save.py
+2023-05-23 16:14:24.753212: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 16:14:26.303505: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Found 87000 images belonging to 29 classes.
+2023-05-23 16:14:33.719293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10379 MB memory:  -> device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ conv2d (Conv2D)             (None, 62, 62, 32)        896
+
+ activation (Activation)     (None, 62, 62, 32)        0
+
+ max_pooling2d (MaxPooling2D  (None, 31, 31, 32)       0
+ )
+
+ conv2d_1 (Conv2D)           (None, 29, 29, 64)        18496
+
+ activation_1 (Activation)   (None, 29, 29, 64)        0
+
+ max_pooling2d_1 (MaxPooling  (None, 14, 14, 64)       0
+ 2D)
+
+ conv2d_2 (Conv2D)           (None, 12, 12, 64)        36928
+
+ activation_2 (Activation)   (None, 12, 12, 64)        0
+
+ max_pooling2d_2 (MaxPooling  (None, 6, 6, 64)         0
+ 2D)
+
+ flatten (Flatten)           (None, 2304)              0
+
+ dense (Dense)               (None, 128)               295040
+
+ activation_3 (Activation)   (None, 128)               0
+
+ dense_1 (Dense)             (None, 29)                3741
+
+ activation_4 (Activation)   (None, 29)                0
+
+=================================================================
+Total params: 355,101
+Trainable params: 355,101
+Non-trainable params: 0
+_________________________________________________________________
+2023-05-23 16:14:34.506263: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+         [[{{node Placeholder/_0}}]]
+Epoch 1/25
+2023-05-23 16:14:36.907490: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-05-23 16:14:37.832031: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x7f485004b8c0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-05-23 16:14:37.832094: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2023-05-23 16:14:37.841548: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-05-23 16:14:38.077295: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1360/1360 [==============================] - 296s 213ms/step - loss: 1.3860 - accuracy: 0.5791
+Epoch 2/25
+1360/1360 [==============================] - 288s 212ms/step - loss: 0.3451 - accuracy: 0.8825
+Epoch 3/25
+1360/1360 [==============================] - 288s 212ms/step - loss: 0.1826 - accuracy: 0.9375
+Epoch 4/25
+1360/1360 [==============================] - 286s 210ms/step - loss: 0.1303 - accuracy: 0.9554
+Epoch 5/25
+1360/1360 [==============================] - 289s 213ms/step - loss: 0.0965 - accuracy: 0.9671
+Epoch 6/25
+1360/1360 [==============================] - 286s 211ms/step - loss: 0.0777 - accuracy: 0.9735
+Epoch 7/25
+1360/1360 [==============================] - 287s 211ms/step - loss: 0.0715 - accuracy: 0.9763
+Epoch 8/25
+1360/1360 [==============================] - 287s 211ms/step - loss: 0.0586 - accuracy: 0.9805
+Epoch 9/25
+1360/1360 [==============================] - 283s 208ms/step - loss: 0.0531 - accuracy: 0.9819
+Epoch 10/25
+1360/1360 [==============================] - 283s 208ms/step - loss: 0.0469 - accuracy: 0.9843
+Epoch 11/25
+1360/1360 [==============================] - 282s 208ms/step - loss: 0.0455 - accuracy: 0.9845
+Epoch 12/25
+1360/1360 [==============================] - 285s 209ms/step - loss: 0.0407 - accuracy: 0.9861
+Epoch 13/25
+1360/1360 [==============================] - 285s 210ms/step - loss: 0.0417 - accuracy: 0.9863
+Epoch 14/25
+1360/1360 [==============================] - 280s 206ms/step - loss: 0.0353 - accuracy: 0.9883
+Epoch 15/25
+1360/1360 [==============================] - 277s 203ms/step - loss: 0.0327 - accuracy: 0.9890
+Epoch 16/25
+1360/1360 [==============================] - 277s 204ms/step - loss: 0.0315 - accuracy: 0.9897
+Epoch 17/25
+1360/1360 [==============================] - 280s 206ms/step - loss: 0.0329 - accuracy: 0.9893
+Epoch 18/25
+1360/1360 [==============================] - 285s 209ms/step - loss: 0.0314 - accuracy: 0.9901
+Epoch 19/25
+1360/1360 [==============================] - 278s 205ms/step - loss: 0.0254 - accuracy: 0.9917
+Epoch 20/25
+1360/1360 [==============================] - 278s 204ms/step - loss: 0.0298 - accuracy: 0.9906
+Epoch 21/25
+1360/1360 [==============================] - 269s 198ms/step - loss: 0.0273 - accuracy: 0.9915
+Epoch 22/25
+1360/1360 [==============================] - 272s 200ms/step - loss: 0.0256 - accuracy: 0.9917
+Epoch 23/25
+1360/1360 [==============================] - 271s 199ms/step - loss: 0.0248 - accuracy: 0.9922
+Epoch 24/25
+1360/1360 [==============================] - 272s 200ms/step - loss: 0.0258 - accuracy: 0.9920
+Epoch 25/25
+1360/1360 [==============================] - 272s 200ms/step - loss: 0.0221 - accuracy: 0.9931
+Traceback (most recent call last):
+  File "/home/sbouzikian/private/save.py", line 85, in <module>
+    metrics[['loss', 'val_loss']].plot()
+  File "/opt/conda/lib/python3.9/site-packages/pandas/core/frame.py", line 3813, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/opt/conda/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6070, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/opt/conda/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6133, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['val_loss'] not in index"
+
+real    117m30.465s
+user    98m8.148s
+sys     4m42.711s
+sbouzikian@sbouzikian-14134:~/private$ ls
+Alpha  cnn.pyc  code  newfT.py  __pycache__
+sbouzikian@sbouzikian-14134:~/private$ python newfT.py
+Traceback (most recent call last):
+  File "/home/sbouzikian/private/newfT.py", line 1, in <module>
+    from cnn import Model, DataGatherer
+ImportError: bad magic number in 'cnn': b'\x03\xf3\r\n'
+sbouzikian@sbouzikian-14134:~/private$ python newfT.py
+2023-05-23 18:38:26.619208: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 18:38:28.598340: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Traceback (most recent call last):
+  File "/home/sbouzikian/private/newfT.py", line 124, in <module>
+    x_train, x_test, y_train, y_test = data_gatherer.load_images()
+  File "/home/sbouzikian/private/newfT.py", line 81, in load_images
+    folders = sorted(os.listdir(self.dir))
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\OPLIK\\OneDrive\\Desktop\\SCHOOL\\UCSD\\Spring 2023\\CSE 145\\ASL-Translator\\Data\\asl_alphabet_train\\asl_alphabet_train'
+sbouzikian@sbouzikian-14134:~/private$ python newfT.py
+2023-05-23 18:40:30.850521: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 18:40:32.875464: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Loading images from folder  A  has started.
+Loading images from folder  B  has started.
+Loading images from folder  C  has started.
+Loading images from folder  D  has started.
+Loading images from folder  E  has started.
+Loading images from folder  F  has started.
+Loading images from folder  G  has started.
+Loading images from folder  H  has started.
+Loading images from folder  I  has started.
+Loading images from folder  J  has started.
+Loading images from folder  K  has started.
+Loading images from folder  L  has started.
+Loading images from folder  M  has started.
+Loading images from folder  N  has started.
+Loading images from folder  O  has started.
+Loading images from folder  P  has started.
+Loading images from folder  Q  has started.
+Loading images from folder  R  has started.
+Loading images from folder  S  has started.
+Loading images from folder  T  has started.
+Loading images from folder  U  has started.
+Loading images from folder  V  has started.
+Loading images from folder  W  has started.
+Loading images from folder  X  has started.
+Loading images from folder  Y  has started.
+Loading images from folder  Z  has started.
+Loading images from folder  del  has started.
+Loading images from folder  nothing  has started.
+Loading images from folder  space  has started.
+2023-05-23 18:42:51.575784: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10379 MB memory:  -> device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1
+Epoch 1/5
+2023-05-23 18:42:56.019817: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape insequential/dropout/dropout/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+2023-05-23 18:42:57.014207: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-05-23 18:42:58.583593: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x7f836c00e130 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-05-23 18:42:58.583658: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2023-05-23 18:42:58.594436: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-05-23 18:42:58.829136: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1224/1224 [==============================] - 96s 72ms/step - loss: 1.1703 - accuracy: 0.6289 - val_loss: 0.1374 - val_accuracy: 0.9649
+Epoch 2/5
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.2375 - accuracy: 0.9181 - val_loss: 0.0515 - val_accuracy: 0.9876
+Epoch 3/5
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.1556 - accuracy: 0.9485 - val_loss: 0.0203 - val_accuracy: 0.9934
+Epoch 4/5
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.1179 - accuracy: 0.9618 - val_loss: 0.0151 - val_accuracy: 0.9975
+Epoch 5/5
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0975 - accuracy: 0.9682 - val_loss: 0.0086 - val_accuracy: 0.9978
+Traceback (most recent call last):
+  File "/home/sbouzikian/private/newfT.py", line 166, in <module>
+    #run the below line to save the classifier
+AttributeError: type object 'Model' has no attribute 'save'
+sbouzikian@sbouzikian-14134:~/private$ ^C
+
+bash: ython: command not found
+sbouzikian@sbouzikian-14134:~/private$ time python newfT.py
+2023-05-23 18:59:45.889409: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 18:59:47.865352: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Loading images from folder A has started.
+Loading images from folder B has started.
+Loading images from folder C has started.
+Loading images from folder D has started.
+Loading images from folder E has started.
+Loading images from folder F has started.
+Loading images from folder G has started.
+Loading images from folder H has started.
+Loading images from folder I has started.
+Loading images from folder J has started.
+Loading images from folder K has started.
+Loading images from folder L has started.
+Loading images from folder M has started.
+Loading images from folder N has started.
+Loading images from folder O has started.
+Loading images from folder P has started.
+Loading images from folder Q has started.
+Loading images from folder R has started.
+Loading images from folder S has started.
+Loading images from folder T has started.
+Loading images from folder U has started.
+Loading images from folder V has started.
+Loading images from folder W has started.
+Loading images from folder X has started.
+Loading images from folder Y has started.
+Loading images from folder Z has started.
+Loading images from folder del has started.
+Loading images from folder nothing has started.
+Loading images from folder space has started.
+2023-05-23 19:02:14.487862: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10379 MB memory:  -> device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1
+Epoch 1/5
+2023-05-23 19:02:18.827760: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape insequential/dropout/dropout/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+2023-05-23 19:02:19.826190: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-05-23 19:02:21.349163: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x7f4408038840 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-05-23 19:02:21.349212: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2023-05-23 19:02:21.357628: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-05-23 19:02:21.580314: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1224/1224 [==============================] - 96s 72ms/step - loss: 1.2116 - accuracy: 0.6185 - val_loss: 0.1800 - val_accuracy: 0.9407
+Epoch 2/5
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.2391 - accuracy: 0.9199 - val_loss: 0.0580 - val_accuracy: 0.9864
+Epoch 3/5
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.1456 - accuracy: 0.9509 - val_loss: 0.0199 - val_accuracy: 0.9951
+Epoch 4/5
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.1117 - accuracy: 0.9633 - val_loss: 0.0140 - val_accuracy: 0.9959
+Epoch 5/5
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0996 - accuracy: 0.9680 - val_loss: 0.0080 - val_accuracy: 0.9991
+Traceback (most recent call last):
+  File "/home/sbouzikian/private/newfT.py", line 124, in <module>
+    plt.figure(figsize=(8, 5))
+NameError: name 'plt' is not defined
+
+real    9m55.619s
+user    5m18.481s
+sys     2m22.594s
+sbouzikian@sbouzikian-14134:~/private$ time python newfT.py ^C
+sbouzikian@sbouzikian-14134:~/private$ ^C
+sbouzikian@sbouzikian-14134:~/private$ time python newfT.py
+  File "/home/sbouzikian/private/newfT.py", line 114
+    x_train, y_train,
+    ^
+SyntaxError: invalid syntax
+
+real    0m0.046s
+user    0m0.035s
+sys     0m0.009s
+sbouzikian@sbouzikian-14134:~/private$ time python newfT.py
+2023-05-23 19:16:40.051159: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 19:16:42.049544: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Loading images from folder A has started.
+Loading images from folder B has started.
+Loading images from folder C has started.
+Loading images from folder D has started.
+Loading images from folder E has started.
+Loading images from folder F has started.
+Loading images from folder G has started.
+Loading images from folder H has started.
+Loading images from folder I has started.
+Loading images from folder J has started.
+Loading images from folder K has started.
+Loading images from folder L has started.
+Loading images from folder M has started.
+Loading images from folder N has started.
+Loading images from folder O has started.
+Loading images from folder P has started.
+Loading images from folder Q has started.
+Loading images from folder R has started.
+Loading images from folder S has started.
+Loading images from folder T has started.
+Loading images from folder U has started.
+Loading images from folder V has started.
+Loading images from folder W has started.
+Loading images from folder X has started.
+Loading images from folder Y has started.
+Loading images from folder Z has started.
+Loading images from folder del has started.
+Loading images from folder nothing has started.
+Loading images from folder space has started.
+2023-05-23 19:19:07.191091: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10379 MB memory:  -> device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1
+Epoch 1/15
+2023-05-23 19:19:11.585183: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape insequential/dropout/dropout/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+2023-05-23 19:19:12.563391: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-05-23 19:19:14.082967: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x7f75d402e9e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-05-23 19:19:14.083028: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2023-05-23 19:19:14.091226: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-05-23 19:19:14.309672: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1224/1224 [==============================] - 96s 72ms/step - loss: 1.3201 - accuracy: 0.5880 - val_loss: 0.1482 - val_accuracy: 0.9580
+Epoch 2/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.2212 - accuracy: 0.9271 - val_loss: 0.0356 - val_accuracy: 0.9917
+Epoch 3/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.1341 - accuracy: 0.9561 - val_loss: 0.0230 - val_accuracy: 0.9955
+Epoch 4/15
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.1049 - accuracy: 0.9654 - val_loss: 0.0120 - val_accuracy: 0.9964
+Epoch 5/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0878 - accuracy: 0.9725 - val_loss: 0.0084 - val_accuracy: 0.9982
+Epoch 6/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0806 - accuracy: 0.9760 - val_loss: 0.0071 - val_accuracy: 0.9986
+Epoch 7/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0721 - accuracy: 0.9783 - val_loss: 0.0100 - val_accuracy: 0.9969
+Epoch 8/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0677 - accuracy: 0.9792 - val_loss: 0.0068 - val_accuracy: 0.9977
+Epoch 9/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0628 - accuracy: 0.9816 - val_loss: 0.0020 - val_accuracy: 0.9994
+Epoch 10/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0637 - accuracy: 0.9817 - val_loss: 0.0028 - val_accuracy: 0.9995
+Epoch 11/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0585 - accuracy: 0.9830 - val_loss: 0.0029 - val_accuracy: 0.9989
+Epoch 12/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0534 - accuracy: 0.9846 - val_loss: 0.0031 - val_accuracy: 0.9992
+Epoch 13/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0636 - accuracy: 0.9824 - val_loss: 0.0048 - val_accuracy: 0.9985
+Epoch 14/15
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0524 - accuracy: 0.9857 - val_loss: 0.0040 - val_accuracy: 0.9989
+Epoch 15/15
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.0553 - accuracy: 0.9845 - val_loss: 0.0014 - val_accuracy: 0.9995
+
+real    24m19.172s
+user    12m42.670s
+sys     6m35.105s
+sbouzikian@sbouzikian-14134:~/private$ time python newfT.py
+2023-05-23 19:55:07.909337: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-23 19:55:09.945112: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Loading images from folder A has started.
+Loading images from folder B has started.
+Loading images from folder C has started.
+Loading images from folder D has started.
+Loading images from folder E has started.
+Loading images from folder F has started.
+Loading images from folder G has started.
+Loading images from folder H has started.
+Loading images from folder I has started.
+Loading images from folder J has started.
+Loading images from folder K has started.
+Loading images from folder L has started.
+Loading images from folder M has started.
+Loading images from folder N has started.
+Loading images from folder O has started.
+Loading images from folder P has started.
+Loading images from folder Q has started.
+Loading images from folder R has started.
+Loading images from folder S has started.
+Loading images from folder T has started.
+Loading images from folder U has started.
+Loading images from folder V has started.
+Loading images from folder W has started.
+Loading images from folder X has started.
+Loading images from folder Y has started.
+Loading images from folder Z has started.
+Loading images from folder del has started.
+Loading images from folder nothing has started.
+Loading images from folder space has started.
+2023-05-23 19:57:34.852148: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 10379 MB memory:  -> device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:09:00.0, compute capability: 6.1
+Epoch 1/35
+2023-05-23 19:57:39.215901: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:954] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape insequential/dropout/dropout/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+2023-05-23 19:57:40.191639: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-05-23 19:57:41.702371: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x7fad540302f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-05-23 19:57:41.702417: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2023-05-23 19:57:41.709760: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-05-23 19:57:41.920372: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+1224/1224 [==============================] - 96s 72ms/step - loss: 1.3540 - accuracy: 0.5806 - val_loss: 0.1567 - val_accuracy: 0.9589
+Epoch 2/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.2677 - accuracy: 0.9095 - val_loss: 0.0554 - val_accuracy: 0.9855
+Epoch 3/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.1661 - accuracy: 0.9442 - val_loss: 0.0314 - val_accuracy: 0.9933
+Epoch 4/35
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.1312 - accuracy: 0.9573 - val_loss: 0.0155 - val_accuracy: 0.9974
+Epoch 5/35
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.1081 - accuracy: 0.9645 - val_loss: 0.0123 - val_accuracy: 0.9983
+Epoch 6/35
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.0938 - accuracy: 0.9699 - val_loss: 0.0109 - val_accuracy: 0.9983
+Epoch 7/35
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.0823 - accuracy: 0.9738 - val_loss: 0.0055 - val_accuracy: 0.9993
+Epoch 8/35
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.0825 - accuracy: 0.9749 - val_loss: 0.0086 - val_accuracy: 0.9982
+Epoch 9/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0740 - accuracy: 0.9767 - val_loss: 0.0057 - val_accuracy: 0.9984
+Epoch 10/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0705 - accuracy: 0.9783 - val_loss: 0.0030 - val_accuracy: 0.9992
+Epoch 11/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0674 - accuracy: 0.9800 - val_loss: 0.0037 - val_accuracy: 0.9993
+Epoch 12/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0681 - accuracy: 0.9807 - val_loss: 0.0025 - val_accuracy: 0.9994
+Epoch 13/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0660 - accuracy: 0.9798 - val_loss: 0.0033 - val_accuracy: 0.9994
+Epoch 14/35
+1224/1224 [==============================] - 87s 71ms/step - loss: 0.0617 - accuracy: 0.9822 - val_loss: 0.0039 - val_accuracy: 0.9992
+Epoch 15/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0600 - accuracy: 0.9826 - val_loss: 0.0024 - val_accuracy: 0.9994
+Epoch 16/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0638 - accuracy: 0.9821 - val_loss: 0.0015 - val_accuracy: 0.9997
+Epoch 17/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0622 - accuracy: 0.9827 - val_loss: 0.0044 - val_accuracy: 0.9989
+Epoch 18/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0583 - accuracy: 0.9837 - val_loss: 0.0014 - val_accuracy: 0.9994
+Epoch 19/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0626 - accuracy: 0.9824 - val_loss: 0.0026 - val_accuracy: 0.9995
+Epoch 20/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0591 - accuracy: 0.9834 - val_loss: 0.0026 - val_accuracy: 0.9991
+Epoch 21/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0565 - accuracy: 0.9849 - val_loss: 0.0020 - val_accuracy: 0.9997
+Epoch 22/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0539 - accuracy: 0.9849 - val_loss: 6.6501e-04 - val_accuracy: 0.9998
+Epoch 23/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0608 - accuracy: 0.9844 - val_loss: 0.0017 - val_accuracy: 0.9999
+Epoch 24/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0563 - accuracy: 0.9852 - val_loss: 8.9203e-04 - val_accuracy: 0.9999
+Epoch 25/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0577 - accuracy: 0.9850 - val_loss: 0.0023 - val_accuracy: 0.9998
+Epoch 26/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0584 - accuracy: 0.9853 - val_loss: 0.0015 - val_accuracy: 0.9997
+Epoch 27/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0519 - accuracy: 0.9870 - val_loss: 0.0020 - val_accuracy: 0.9994
+Epoch 28/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0524 - accuracy: 0.9867 - val_loss: 8.2757e-04 - val_accuracy: 0.9999
+Epoch 29/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0596 - accuracy: 0.9854 - val_loss: 0.0011 - val_accuracy: 0.9999
+Epoch 30/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0582 - accuracy: 0.9861 - val_loss: 0.0013 - val_accuracy: 0.9998
+Epoch 31/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0610 - accuracy: 0.9856 - val_loss: 0.0017 - val_accuracy: 0.9998
+Epoch 32/35
+1224/1224 [==============================] - 86s 70ms/step - loss: 0.0550 - accuracy: 0.9872 - val_loss: 0.0017 - val_accuracy: 0.9997
+Epoch 33/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0588 - accuracy: 0.9861 - val_loss: 0.0029 - val_accuracy: 0.9995
+Epoch 34/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0589 - accuracy: 0.9866 - val_loss: 0.0012 - val_accuracy: 0.9998
+Epoch 35/35
+1224/1224 [==============================] - 86s 71ms/step - loss: 0.0586 - accuracy: 0.9864 - val_loss: 0.0021 - val_accuracy: 0.9994
+
+real    53m5.484s
+user    28m2.392s
+sys     14m27.258s
+sbouzikian@sbouzikian-14134:~/private$ kill
