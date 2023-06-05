@@ -89,3 +89,15 @@ pyspellchecker<br>
 With these installations, you can execute the provided Jupyter Notebook code to run the ASL Translator program.<br>
 
 ---
+
+## Results ##
+
+![demo](Alphabet-demo/4.gif)
+
+---
+
+## Data ##
+
+![data](CollectedData/daa.jpg)<br>
+![accuracy](CollectedData/acc.jpg)<br>
+![loss](CollectedData/loo.jpg)<br>
