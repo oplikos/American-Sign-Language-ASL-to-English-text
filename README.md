@@ -8,8 +8,6 @@ The ASL Translator project is aimed at developing a machine learning-based syste
 
 ## Team Member ##
 - Sarkis Bouzikian
-- Ryan
-- Conar
 
 ---
 
